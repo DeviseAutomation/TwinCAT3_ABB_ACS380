@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.50">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{62E65995-AA39-0F81-BBC5-0DF7BA75A1C4}" AutoDeleteType="true">ABB_StatusWord</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>RDY_ON</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=READY TO SWITCH ON, 0=NOT READY]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>RDY_RUN</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=READY TO OPERATE, 0=OFF1 ACTIVE]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>RDY_REF</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=OPERATION ENABLED, 0=OPERATION INHIBITED]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TRIPPED</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=FAULT, 0=NO FAULT]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OFF_2_STA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=OFF2 INACTIVE, 0=OFF2 ACTIVE]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OFF_3_STA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=OFF3 INACTIVE, 0=OFF3 ACTIVE]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SWC_ON_INHIB</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=SWITCH-ON INHIBITED, 0=-]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>WARNING</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=ALARM/WARNING, 0=NO ALARM/WARNING]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>AT_SETPOINT</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=ACTUAL REFERENCE IS WITHIN TOLERANCE LIMITS]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>REMOTE</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=DRIVE CONTROL REMOTE, 0=DRIVE CONTROL LOCAL]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>9</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ABOVE_LIMIT</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=FREQUENCY/SPEED EXCEEDS LIMITS 0=WITHIN LIMITS]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>10</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BIT_11</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=EXTERNAL CONTROL EXT2 SELECTED, 0=EXTERNAL CONTROL EXT1 SELECTED]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BIT_12</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=EXTERNAL RUN ENABLE SIGNAL RECEIVED, 0=NO RUN ENABLE SIGNAL RECEIVED]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BIT_13</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BIT_14</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>14</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FBA_ERROR</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=COMMUNICATION ERROR DETECTED, 0=COMMUNICATION OK	]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>15</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{44C9AD24-F93E-C6BA-3621-C1DD04D301E2}" AutoDeleteType="true">ABB_ControlWord</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>OFF1_CONTROL</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=READY TO OPERATE, 0=STOP ALONG THE CURRENTLY ACTIVE DECEL RAMP]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OFF2_CONTROL</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=CONTINUE OPERATION, 0=EMERGENCY OFF, COAST TO STOP]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>OFF3_CONTROL</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=CONTINUE OPERATION, 0=EMERGENCY STOP, STOP WITHIN THE TIME DEFINED BY THE DRIVE PARAMETER]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>RUN</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=OPERATION ENABLED, 0=OPERATION INHIBITED]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>RAMP_OUT_ZERO</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=NORMAL OPERATION RAMP FUNCTION GENERATOR, 0=FORCE RAMP FUNCTION OUTPUT TO 0]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>RAMP_HOLD</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=NORMAL OPERATION RAMP FUNCTION GENERATOR, 0=HALT RAMPING]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>RAMP_IN_ZERO</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=NORMAL OPERATION RAMP FUNCTION GENERATOR, 0=FORCE RAMP FUNCTION INPUT TO 0]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>RESET</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[0=>1 RESET ACTIVE FAULT]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>INCHING_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=ACCELERATE TO INCHING (JOGGING) SETPOINT 1, 0=DISABLED]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>INCHING_2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=ACCELERATE TO INCHING (JOGGING) SETPOINT 2, 0=DISABLED]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>9</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>REMOTE_CMD</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[1=FIELDBUS CONTROL ENABLED, 0=LOCAL CONTROL]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>10</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>EXT_CTRL_LOC</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BIT_12</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BIT_13</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BIT_14</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>14</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>BIT_15</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>15</BitOffs>
+			</SubItem>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424de6000000000000007600000028000000100000000e000000010004000000000070000000120b0000120b0000100000001000000000000000000080000080000000808000800000008000800080800000c0c0c000808080000000ff0000ff000000ffff00ff000000ff00ff00ffff0000ffffff00dddddddddddddddddddddddddddddddddddddddddddddddd99dd99d999dd999d99dd99d9999d9999999999d9999d9999d9999dd999dd999dddddddddddddddddd9999dd9999d9999dd99ddd9999d9999dd99ddd999dd999ddddddddddddddddddddddddddddddddddddddddddddddddd</ImageData>
+	</ImageDatas>
+	<Project ProjectGUID="{FCAF8AF1-8FF7-4CE6-B432-770FD3C4F60B}" Target64Bit="true" ShowHideConfigurations="#x6">
+		<System>
+			<Tasks>
+				<Task Id="2" Priority="32" AdtTasks="true" JobTask="true">
+					<Name>Job Task</Name>
+					<ImageId>327</ImageId>
+				</Task>
+				<Task Id="6" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{F1A3EB6F-8856-44EA-9ECB-38F35523197B}" Name="ABB ACS380 Demo" PrjFilePath="ABB ACS380 Demo\ABB ACS380 Demo.plcproj" TmcFilePath="ABB ACS380 Demo\ABB ACS380 Demo.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="ABB ACS380 Demo\ABB ACS380 Demo.tmc" TmcHash="{57CD7080-AA5B-A2F2-7F72-2C8235B1C11E}">
+					<Name>ABB ACS380 Demo Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>MAIN.ACS380.StatusWord</Name>
+							<Type GUID="{62E65995-AA39-0F81-BBC5-0DF7BA75A1C4}">ABB_StatusWord</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ACS380.SpeedACT</Name>
+							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ACS380.ComError</Name>
+							<Type>BIT</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>MAIN.ACS380.ControlWord</Name>
+							<Type GUID="{44C9AD24-F93E-C6BA-3621-C1DD04D301E2}">ABB_ControlWord</Type>
+						</Var>
+						<Var>
+							<Name>MAIN.ACS380.SpeedCMD</Name>
+							<Comment><![CDATA[0-60 = 0-60hz]]></Comment>
+							<Type>INT</Type>
+						</Var>
+					</Vars>
+					<Contexts>
+						<Context>
+							<Id>0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010060</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>10000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+		<Io>
+			<Device Id="2" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="10.0.2.193.3.1" RemoteName="Device 2 (EtherCAT)" InfoImageId="2">
+				<Name>Device 2 (EtherCAT)</Name>
+				<AddressInfo>
+					<Pnp>
+						<DeviceDesc>Ethernet (TwinCAT-Intel PCI Ethernet Adapter (Gigab</DeviceDesc>
+						<DeviceName>\DEVICE\{BB753CA4-ACB4-4224-819A-09F644422B86}</DeviceName>
+						<DeviceData>cc96e58b3a0d</DeviceData>
+					</Pnp>
+				</AddressInfo>
+				<Image Id="1" AddrType="9" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Box Id="1" BoxType="9099">
+					<Name>Box 1 (FECA-01)</Name>
+					<ImageId>1000</ImageId>
+					<EtherCAT SlaveType="2" CycleMBoxPolling="true" CoeType="31" VendorId="#x000000b7" ProductCode="#x00000264" RevisionNo="#x00000117" SerialNo="#x0024c61e" InfoDataAddr="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="ABB FECA-01 EtherCAT adapter" Desc="FECA-01" PortABoxInfo="#x00ffffff">
+						<SyncMan>0012f800260001000100000000000000f800001226010000</SyncMan>
+						<SyncMan>f812f800220001000200000000000000f800f81222010000</SyncMan>
+						<SyncMan>001004002400010003000000000000000000001024010000</SyncMan>
+						<SyncMan>001104002000010004000000000000000000001120010000</SyncMan>
+						<Fmmu>0000000000000000001000020100000001000000000000000000000000000000</Fmmu>
+						<Fmmu>0000000000000000001100010100000002000000000000000000000000000000</Fmmu>
+						<Pdo Name="TxPDO 1 map" Index="#x1a00" Flags="#x0000">
+							<Entry Name="Statusword" Index="#x6041">
+								<Type>UINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="TxPDO 2 map" Index="#x1a01" Flags="#x0000">
+							<Entry Name="Statusword" Index="#x6041">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="Position actual value" Index="#x6064">
+								<Type>DINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="TxPDO 3 map" Index="#x1a02" Flags="#x0000">
+							<Entry Name="Statusword" Index="#x6041">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="Position actual value" Index="#x6064">
+								<Type>DINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="TxPDO 4 map" Index="#x1a03" Flags="#x0000">
+							<Entry Name="Statusword" Index="#x6041">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="Position actual value" Index="#x6064">
+								<Type>DINT</Type>
+							</Entry>
+							<Entry Name="Torque actual value" Index="#x6077">
+								<Type>INT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="TxPDO 6 map" Index="#x1a05" Flags="#x0000" SyncMan="3">
+							<Entry Name="Statusword" Index="#x6041">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="vl velocity actual value" Index="#x6044">
+								<Type>INT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="TxPDO 21 map" Index="#x1a14" Flags="#x0000">
+							<Entry Name="ABB Drives status word" Index="#x2104">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="ABB Drives ACT1" Index="#x2105">
+								<Type>INT</Type>
+							</Entry>
+							<Entry Name="ABB Drives ACT2" Index="#x2106">
+								<Type>INT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="RxPDO 1 map" Index="#x1600" InOut="1" Flags="#x0000">
+							<Entry Name="Controlword" Index="#x6040">
+								<Type>UINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="RxPDO 2 map" Index="#x1601" InOut="1" Flags="#x0000">
+							<Entry Name="Controlword" Index="#x6040">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="Target position" Index="#x607a">
+								<Type>DINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="RxPDO 3 map" Index="#x1602" InOut="1" Flags="#x0000">
+							<Entry Name="Controlword" Index="#x6040">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="Target velocity" Index="#x60ff">
+								<Type>DINT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="RxPDO 4 map" Index="#x1603" InOut="1" Flags="#x0000">
+							<Entry Name="Controlword" Index="#x6040">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="Target torque" Index="#x6071">
+								<Type>INT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="RxPDO 6 map" Index="#x1605" InOut="1" Flags="#x0000" SyncMan="2">
+							<Entry Name="Controlword" Index="#x6040">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="vl target velocity" Index="#x6042">
+								<Type>INT</Type>
+							</Entry>
+						</Pdo>
+						<Pdo Name="RxPDO 21 map" Index="#x1614" InOut="1" Flags="#x0000">
+							<Entry Name="ABB Drives control word" Index="#x2101">
+								<Type>UINT</Type>
+							</Entry>
+							<Entry Name="ABB Drives REF1" Index="#x2102">
+								<Type>INT</Type>
+							</Entry>
+							<Entry Name="ABB Drives REF2" Index="#x2103">
+								<Type>INT</Type>
+							</Entry>
+						</Pdo>
+					</EtherCAT>
+				</Box>
+				<EtherCAT/>
+			</Device>
+		</Io>
+	</Project>
+	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+		<OwnerA Name="TIPC^ABB ACS380 Demo^ABB ACS380 Demo Instance">
+			<OwnerB Name="TIID^Device 2 (EtherCAT)^Box 1 (FECA-01)">
+				<Link VarA="PlcTask Inputs^MAIN.ACS380.ComError" VarB="WcState^WcState"/>
+				<Link VarA="PlcTask Inputs^MAIN.ACS380.SpeedACT" VarB="TxPDO 6 map^vl velocity actual value"/>
+				<Link VarA="PlcTask Inputs^MAIN.ACS380.StatusWord" VarB="TxPDO 6 map^Statusword"/>
+				<Link VarA="PlcTask Outputs^MAIN.ACS380.ControlWord" VarB="RxPDO 6 map^Controlword"/>
+				<Link VarA="PlcTask Outputs^MAIN.ACS380.SpeedCMD" VarB="RxPDO 6 map^vl target velocity"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
+</TcSmProject>

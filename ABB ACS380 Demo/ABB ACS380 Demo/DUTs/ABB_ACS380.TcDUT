@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ABB_ACS380" Id="{c82da56d-d354-4a28-91c7-5448ed12cc02}">
+    <Declaration><![CDATA[TYPE ABB_ACS380 :
+STRUCT
+	StatusWord 	AT %I* 	: ABB_StatusWord;
+	SpeedACT 	AT %I* 	: INT;
+	ControlWord AT %Q* 	: ABB_ControlWord;
+	SpeedCMD 	AT %Q* 	: INT; //P#50.04/50.07 = Frequency 0 to 60 = 0-60hz Reference P#46.02, = Speed -20000 to 20000 Reference Speed Scaling P#46.01
+	ComError 	AT %I*	: BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

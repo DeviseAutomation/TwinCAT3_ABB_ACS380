@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{65ddfae7-441d-40a9-83f4-805b218a5035}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+ACS380 		: ABB_ACS380;
+
+xReady 		: BOOL;
+xRun 		: BOOL;
+xStop 		: BOOL;
+xEstop		: BOOL;
+xReset		: BOOL;
+xJog		: BOOL;
+xFaultPresent : BOOL;
+iSpeedRef 	: INT;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Need to be True
+ACS380.ControlWord.REMOTE_CMD := TRUE;
+ACS380.ControlWord.RAMP_OUT_ZERO := TRUE;
+ACS380.ControlWord.RAMP_HOLD := TRUE;
+ACS380.ControlWord.RAMP_IN_ZERO := TRUE;
+
+//VFD Reset
+	IF xReset THEN
+		ACS380.ControlWord.RESET := TRUE;
+	ELSE
+		ACS380.ControlWord.RESET := FALSE;
+	END_IF
+
+//Stop Not Active
+	IF NOT xStop AND NOT xEstop  THEN
+		ACS380.ControlWord.OFF2_CONTROL := TRUE;
+		ACS380.ControlWord.OFF3_CONTROL := TRUE;
+	ELSE
+		ACS380.ControlWord.OFF2_CONTROL := FALSE;
+		ACS380.ControlWord.OFF3_CONTROL := FALSE;
+	END_IF
+	
+//VFD Ready
+	IF xReady AND ACS380.StatusWord.RDY_ON AND NOT ACS380.StatusWord.TRIPPED AND NOT xFaultPresent THEN
+		ACS380.ControlWord.OFF1_CONTROL := TRUE;
+	ELSE
+		ACS380.ControlWord.OFF1_CONTROL := FALSE;
+	END_IF
+	
+//Run VFD
+	IF xRun AND ACS380.StatusWord.RDY_RUN THEN
+		ACS380.ControlWord.RUN := TRUE;
+	ELSE
+		ACS380.ControlWord.RUN := FALSE;
+	END_IF
+
+//VFD Speed Command
+	ACS380.SpeedCMD := iSpeedRef;
+	
+//VFD Fault
+	IF ACS380.StatusWord.TRIPPED OR ACS380.ComError THEN
+		xFaultPresent := TRUE;
+	ELSIF xFaultPresent AND xReset THEN
+		xFaultPresent := FALSE;
+	END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="47" Count="0" />
+      <LineId Id="109" Count="1" />
+      <LineId Id="45" Count="1" />
+      <LineId Id="78" Count="3" />
+      <LineId Id="83" Count="1" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="85" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="52" Count="1" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="1" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="94" Count="2" />
+      <LineId Id="92" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
